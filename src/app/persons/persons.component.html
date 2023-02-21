@@ -2,7 +2,13 @@
 	<div class="row">
 		<div class="col">
 			<h1>Listado de personas</h1>
+			<button class="btn btn-primary" [disabled]="disabled" (click)="addPerson()">Agregar Persona</button>
+			{{message}}
 			<app-person></app-person>
+
+			<label for="">Titulo persona</label>
+			<input type="text" class="form-control" (input)="changeTitle($event)">
+			{{title}}
 		</div>
 	</div>
 </div>
