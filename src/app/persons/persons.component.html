@@ -3,11 +3,15 @@
 		<div class="col">
 			<h1>Listado de personas</h1>
 			<button class="btn btn-primary" [disabled]="disabled" (click)="addPerson()">Agregar Persona</button>
-			{{message}}
+
+			<p *ngIf="view; else notView">{{message}}</p>
+			<ng-template #notView>
+				<p>no se ha agregado persona</p>
+			</ng-template>
 			<app-person></app-person>
 
 			<label for="">Titulo persona</label>
-			<input type="text" class="form-control" (input)="changeTitle($event)">
+			<input type="text" class="form-control" [(ngModel)]="title">
 			{{title}}
 		</div>
 	</div>

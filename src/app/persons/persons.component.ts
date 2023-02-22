@@ -9,11 +9,14 @@ export class PersonsComponent {
   disabled = false;
   message = 'No ha agregado ninguna persona';
   title = '';
+  view = false;
+
   addPerson() {
+    this.view = !this.view;
     this.message = 'Se ha agrego una persona';
     console.log('add');
   }
   changeTitle(e: Event) {
-    this.title = 	(<HTMLInputElement> e.target).value;
+    this.title = (<HTMLInputElement>e.target).value;
   }
 }
