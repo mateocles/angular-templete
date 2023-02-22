@@ -2,45 +2,22 @@
 	<div class="row">
 		<div class="col">
 			<h1>Listado de personas</h1>
-			<button class="btn btn-primary" [disabled]="disabled" (click)="addPerson()">Agregar Persona</button>
+			<div class="container">
+				<div class="col">
+					<hr>
+					<app-form (personCreation)="personCreate($event)"></app-form>
+				</div>
+			</div>
 
-			<p *ngIf="view; else notView">{{message}}</p>
-			<ng-template #notView>
-				<p>no se ha agregado persona</p>
-			</ng-template>
+			<div class="container">
+				<app-person *ngFor="let person of persons; let i= index" [person]="person" [i]="i"></app-person>
+			</div>
 
-			<app-person></app-person>
 
 			<label for="">Titulo persona</label>
 			<input type="text" class="form-control" [(ngModel)]="title">
 			{{title}}
 
-			<div class="container">
-				<div class="col">
-					<h1>
-						Agregar Persona
-					</h1>
-					<hr>
-					<form class="form-row">
-						<div class="form-group col-md-2">
-							<label for="name">Nombre:</label>
-							<input type="text" class="form-control" name="name" id="name" [(ngModel)]="nameInput">
-						</div>
-						<div class="form-group col-md-2">
-							<label for="lastName">Apellido:</label>
-							<input type="text" class="form-control" name="lastName" id="lastName" [(ngModel)]="lastNameInput">
-						</div>
-						<div class="col mt-4 mb-4">
-							<button class="btn btn-primary" type="submit" (click)="addPerson()">Agregar Persona</button>
-						</div>
-					</form>
-				</div>
-			</div>
-			<div class="container" *ngFor="let person of persons; let i= index">
-				{{i}}
-				{{person.name}}
-				{{person.lastName}}
-			</div>
 		</div>
 	</div>
 </div>

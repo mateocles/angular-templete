@@ -29,4 +29,7 @@ export class PersonsComponent {
   changeTitle(e: Event) {
     this.title = (<HTMLInputElement>e.target).value;
   }
+  personCreate(person: Person) {
+    this.persons.push(person);
+  }
 }
